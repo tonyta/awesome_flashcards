@@ -31,7 +31,7 @@ class Card
   end
 
   def check_card(user_input)
-    answer == user_input.downcase
+    answer.downcase == user_input.downcase
   end
 end
 

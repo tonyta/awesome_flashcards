@@ -1,6 +1,6 @@
 class WelcomeView
   def welcome
-    puts "Welcome to Ruby Flash Cards. To play, just enter the correct term for each definition.  Ready?  Go!"
+    puts "Welcome to Ruby Flash Cards. To play, just enter the correct term for each definition.  Ready?  Go!\n\n"
   end
 end
 
@@ -12,7 +12,7 @@ class CardView
   end
 
   def display_definition
-    puts "Definition:\n#{card.definition}"
+    puts "Definition:\n#{card.definition}\n\n"
   end
 
   def prompt_guess
@@ -21,15 +21,12 @@ class CardView
   end
 end
 
-# class OptionsView
-# end
-
 class FeedbackView
   def correct_reply
-    puts "Correct!"
+    puts "Correct!\n\n"
   end
 
   def incorrect_reply
-    puts "Incorrect! Try again."
+    puts "Incorrect! Try again.\n\n"
   end
 end

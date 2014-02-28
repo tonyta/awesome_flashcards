@@ -1,3 +1,3 @@
 require_relative 'controller'
 
-FlashcardsController.new.run
+FlashcardsController.new('flashcard_samples.txt').run

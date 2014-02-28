@@ -9,7 +9,7 @@ class FlashcardsController
   end
 
   def run
-    Welcome.new.welcome
+    WelcomeView.new.welcome
     until deck.empty?
       card = deck.pick_card
       play(card)
