@@ -5,8 +5,14 @@ class WelcomeView
 end
 
 class CardView
-  def display_definition(card_obj)
-    puts "Definition:\n#{card_obj.definition}"
+  attr_accessor :card
+
+  def initialize(card_obj)
+    @card = card_obj
+  end
+
+  def display_definition
+    puts "Definition:\n#{card.definition}"
   end
 
   def prompt_guess
