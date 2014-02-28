@@ -7,6 +7,14 @@ class GameView
     print "Guess: "
     gets.chomp
   end
+
+  def correct_reply
+    puts "Correct!\n\n"
+  end
+
+  def incorrect_reply
+    puts "Incorrect! Try again.\n\n"
+  end
 end
 
 class CardView
@@ -21,14 +29,4 @@ class CardView
   private
 
   attr_reader :card
-end
-
-class FeedbackView
-  def correct_reply
-    puts "Correct!\n\n"
-  end
-
-  def incorrect_reply
-    puts "Incorrect! Try again.\n\n"
-  end
 end

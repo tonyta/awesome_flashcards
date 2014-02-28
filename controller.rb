@@ -27,18 +27,17 @@ class FlashcardsController
   end
 
   def guess_loop(card, card_view)
-    feedback = FeedbackView.new
     loop do
       input = display.get_input
       if input =~ /^--/
-        options(input)
+        options(input, card)
         return
       elsif card.guess_correct?(input)
-        feedback.correct_reply
+        display.correct_reply
         return
       else
         card.record_guess(input)
-        feedback.incorrect_reply
+        display.incorrect_reply
       end
     end
   end
@@ -46,5 +45,4 @@ class FlashcardsController
   def options(option_str)
     puts "options!\n\n"
   end
-
 end
