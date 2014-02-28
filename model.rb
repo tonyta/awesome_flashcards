@@ -17,6 +17,7 @@ class Deck
   end
 
   def empty?
+    deck.empty?
   end
 
 end
