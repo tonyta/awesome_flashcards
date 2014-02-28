@@ -1,2 +1,8 @@
-To create a second name for the variable or method.
-alias
+The number one.
+1
+
+The number two.
+2
+
+The number three.
+3

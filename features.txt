@@ -7,3 +7,4 @@ HOT NEW FEATURES
 - decks on decks
 - prompt themes
 - quitter status (Greg)
+- hint system

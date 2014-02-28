@@ -5,8 +5,6 @@ class WelcomeView
 end
 
 class CardView
-  attr_accessor :card
-
   def initialize(card_obj)
     @card = card_obj
   end
@@ -19,6 +17,10 @@ class CardView
     print "Guess: "
     gets.chomp
   end
+
+  private
+
+  attr_reader :card
 end
 
 class FeedbackView

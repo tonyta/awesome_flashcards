@@ -11,22 +11,22 @@ class FlashcardsController
   def run
     WelcomeView.new.welcome
     until deck.empty?
-      card = deck.pick_card
-      play(card)
+      play( deck.pick_card )
     end
   end
 
+  private
+
   def play(card)
-    view = CardView.new(card)
-    view.display_definition
-    guess_loop(card, view)
+    card_view = CardView.new(card)
+    card_view.display_definition
+    guess_loop(card, card_view)
   end
 
-  def guess_loop(card, view)
+  def guess_loop(card, card_view)
     feedback = FeedbackView.new
     loop do
-      guess = view.prompt_guess
-      if card.check_card(guess)
+      if card.check_card( card_view.prompt_guess )
         feedback.correct_reply
         return
       else
