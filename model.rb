@@ -25,19 +25,16 @@ end
 
 class Card
   attr_reader :definition, :answer
-  def initialize(card)
+  def initialize(card)                              #HEY TONY, GO FUCK YOURSELF
     @definition = card[0].chomp
     @answer = card[1].chomp
   end
 
   def check_card(user_input)
-    answer == user_input
+    answer == user_input.downcase
   end
 end
 
-
-test = Deck.new('flashcard_samples.txt')
-p test.pick_card
 
 
 
