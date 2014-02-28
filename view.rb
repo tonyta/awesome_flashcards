@@ -1,6 +1,11 @@
-class WelcomeView
+class GameView
   def welcome
     puts "Welcome to Ruby Flash Cards. To play, just enter the correct term for each definition.  Ready?  Go!\n\n"
+  end
+
+  def get_input
+    print "Guess: "
+    gets.chomp
   end
 end
 
@@ -11,11 +16,6 @@ class CardView
 
   def display_definition
     puts "Definition:\n#{card.definition}\n\n"
-  end
-
-  def prompt_guess
-    print "Guess: "
-    gets.chomp
   end
 
   private

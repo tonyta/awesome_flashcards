@@ -2,14 +2,15 @@ require_relative 'model'
 require_relative 'view'
 
 class FlashcardsController
-  attr_accessor :deck
+  attr_accessor :deck, :display
 
   def initialize(filename)
     @deck = Deck.new(filename)
+    @display = GameView.new
   end
 
   def run
-    WelcomeView.new.welcome
+    display.welcome
     until deck.empty?
       card = deck.pick_card
       play(card)
@@ -28,14 +29,22 @@ class FlashcardsController
   def guess_loop(card, card_view)
     feedback = FeedbackView.new
     loop do
-      guess = card_view.prompt_guess
-      if card.guess_correct?(guess)
+      input = display.get_input
+      if input =~ /^--/
+        options(input)
+        return
+      elsif card.guess_correct?(input)
         feedback.correct_reply
         return
       else
-        card.record_guess(guess)
+        card.record_guess(input)
         feedback.incorrect_reply
       end
     end
   end
+
+  def options(option_str)
+    puts "options!\n\n"
+  end
+
 end
