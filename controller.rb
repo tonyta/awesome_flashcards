@@ -11,7 +11,9 @@ class FlashcardsController
   def run
     WelcomeView.new.welcome
     until deck.empty?
-      play( deck.pick_card )
+      card = deck.pick_card
+      play(card)
+      deck.add_to_discard(card)
     end
   end
 
