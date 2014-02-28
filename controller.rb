@@ -28,7 +28,7 @@ class FlashcardsController
   def guess_loop(card, card_view)
     feedback = FeedbackView.new
     loop do
-      if card.check_card( card_view.prompt_guess )
+      if card.guess_correct?( card_view.prompt_guess )
         feedback.correct_reply
         return
       else

@@ -46,7 +46,7 @@ class Card
     Card.new(str_array[0].chomp, str_array[1].chomp)
   end
 
-  def check_card(guess)
+  def guess_correct?(guess)
     answer.downcase == guess.downcase
   end
 end
