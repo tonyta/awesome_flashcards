@@ -17,14 +17,18 @@ class FlashcardsController
   end
 
   def play(card)
-    feedback = FeedbackView.new
     view = CardView.new(card)
     view.display_definition
+    guess_loop(card, view)
+  end
+
+  def guess_loop(card, view)
+    feedback = FeedbackView.new
     loop do
       guess = view.prompt_guess
       if card.check_card(guess)
         feedback.correct_reply
-        break
+        return
       else
         feedback.incorrect_reply
       end
