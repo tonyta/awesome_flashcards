@@ -35,11 +35,12 @@ class Deck
 end
 
 class Card
-  attr_reader :definition, :answer
+  attr_reader :definition, :answer, :incorrect_guesses
 
   def initialize(definition, answer)
     @definition = definition
     @answer = answer
+    @incorrect_guesses = []
   end
 
   def self.new_from_parse(str_array)
@@ -48,5 +49,9 @@ class Card
 
   def guess_correct?(guess)
     answer.downcase == guess.downcase
+  end
+
+  def record_guess(guess)
+    incorrect_guesses << guess
   end
 end
