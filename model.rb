@@ -25,7 +25,7 @@ class Deck
   end
 
   def shuffle_cards
-    self.deck = deck.shuffle
+    deck.shuffle!
   end
 end
 
