@@ -1,9 +1,10 @@
 class Deck
-  attr_reader :deck, :file
+  attr_reader :deck, :file, :discard
 
   def initialize(file)
     @file = file
     @deck = []
+    @discard = []
     parse_from_file
     shuffle_cards
   end
@@ -14,6 +15,10 @@ class Deck
 
   def empty?
     deck.empty?
+  end
+
+  def add_to_discard(card_obj)
+    discard << card_obj
   end
 
   private
