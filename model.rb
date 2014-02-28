@@ -15,6 +15,10 @@ class Deck
   def pick_card
     deck.sample
   end
+
+  def empty?
+  end
+
 end
 
 
