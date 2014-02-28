@@ -13,7 +13,7 @@ class Deck
   end
 
   def pick_card
-    deck.sample
+    deck.shuffle!.pop
   end
 
   def empty?
@@ -38,3 +38,6 @@ end
 
 test = Deck.new('flashcard_samples.txt')
 p test.pick_card
+
+
+
