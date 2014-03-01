@@ -21,17 +21,16 @@ class FlashcardsController
   private
 
   def play(card)
-    card_view = CardView.new(card)
-    card_view.display_definition
-    guess_loop(card, card_view)
+    CardView.new(card).display_definition
+    guess_loop(card)
   end
 
-  def guess_loop(card, card_view)
+  def guess_loop(card)
     loop do
       input = display.get_input
-      if input =~ /^--/
-        options(input, card)
-        return
+      if input.sub!(/^--/, '')
+        return if options(input, card)
+        # return
       elsif card.guess_correct?(input)
         display.correct_reply
         return
@@ -42,7 +41,23 @@ class FlashcardsController
     end
   end
 
-  def options(option_str)
-    puts "options!\n\n"
+  def options(option, card)
+    case option
+    when 'help'
+      display.help
+      false
+    when 'skip'
+      puts 'skip option'
+      true
+    when 'greg'
+      puts 'quitter'
+      exit!
+    when 'report'
+      puts 'a report is here'
+      false
+    else
+      puts 'else'
+      false
+    end
   end
 end
