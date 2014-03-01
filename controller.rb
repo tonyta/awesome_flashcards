@@ -10,11 +10,11 @@ class FlashcardsController
   end
 
   def run
-    display.welcome
     until deck.empty?
+      display.clear
+      display.welcome
       card = deck.pick_card
       play(card)
-      deck.add_to_discard(card)
     end
   end
 
@@ -22,17 +22,17 @@ class FlashcardsController
 
   def play(card)
     CardView.new(card).display_definition
-    guess_loop(card)
+    input_loop(card)
   end
 
-  def guess_loop(card)
+  def input_loop(card)
     loop do
       input = display.get_input
       if input.sub!(/^--/, '')
         return if options(input, card)
-        # return
       elsif card.guess_correct?(input)
         display.correct_reply
+        deck.add_to_discard(card)
         return
       else
         card.record_guess(input)
@@ -47,7 +47,7 @@ class FlashcardsController
       display.help
       false
     when 'skip'
-      puts 'skip option'
+      deck.to_bottom(card)
       true
     when 'greg'
       puts 'quitter'

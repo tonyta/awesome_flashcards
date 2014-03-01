@@ -1,4 +1,10 @@
 class GameView
+
+  def clear
+    print "\e[2J" # clears screen
+    print "\e[H"  # move to home
+  end
+
   def welcome
     puts "Welcome to Ruby Flash Cards. To play, just enter the correct term for each definition.  Ready?  Go!\n\n"
   end

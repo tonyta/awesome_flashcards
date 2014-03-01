@@ -21,6 +21,10 @@ class Deck
     discard << card_obj
   end
 
+  def to_bottom(card_obj)
+    deck.unshift(card_obj)
+  end
+
   private
 
   attr_writer :deck
